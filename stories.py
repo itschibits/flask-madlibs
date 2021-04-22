@@ -47,6 +47,6 @@ silly_story = Story(
 # and everything should still work
 
 excited_story = Story(
-    ["noun", "verb"],
-    """OMG!! OMG!! I love to {verb} a {noun}!"""
+    ["noun", "noun"],
+    """OMG!! OMG!! I love to {noun} a {noun}!"""
 )

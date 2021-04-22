@@ -11,14 +11,24 @@ debug = DebugToolbarExtension(app)
 
 
 STORIES = [silly_story, excited_story]
-
+# random_story = None
 
 @app.route('/')
-def madlibs_form():
-    """Return homepage"""
-
+def show_form():
+    """shows a madlib form"""
+    # random_story = choice(STORIES)
     return render_template(
         "questions.html",
-        words=choice(STORIES).prompts,
+        prompts=excited_story.prompts
         )
 
+
+@app.route('/results')
+def show_story():
+    """Takes in answers from form and generates a madlibs story """
+    answers = request.args
+    text = excited_story.generate(answers)
+    print('this is our answers ', answers)
+
+    return render_template('story.html', story=text)
+    
